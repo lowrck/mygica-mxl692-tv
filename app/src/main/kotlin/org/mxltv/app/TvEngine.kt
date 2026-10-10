@@ -310,10 +310,11 @@ object TvEngine {
         monitorJob?.cancel()
         monitorJob = scope.launch {
             var tick = 0
+            val bytes0 = tuner?.bytesReceived ?: 0L
             while (isActive) {
                 val t = tuner ?: break
                 _signal.value = runCatching { t.signal() }.getOrNull()
-                if (tick % 30 == 29) Log.i(TAG, "diag: ${t.bytesReceived * 8 / 1000 / (tick + 1)} kbit/s avg, " +
+                if (tick % 30 == 29) Log.i(TAG, "diag: ${(t.bytesReceived - bytes0) * 8 / 1000 / (tick + 1)} kbit/s avg, " +
                     "mux ${stats}, server sent=${server.sent} dropped=${server.dropped}, signal=${_signal.value}")
                 val ps = _play.value
                 if (ps is PlayState.NoSignal && tick % 3 == 2) {

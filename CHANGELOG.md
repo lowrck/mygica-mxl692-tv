@@ -103,8 +103,14 @@ and PT682C".
   about 32% CPU with software decoding, and channel changes in under 4 s.
 - **Build.** libVLC 3.7.7 pulls in the Kotlin 2.2 standard library, which the Kotlin 2.0 compiler
   cannot read, so the project moved to Kotlin 2.2.21 and the `compilerOptions` DSL.
+- **Black screen after returning to the player.** libVLC's video views were attached once, when
+  the player was created. Leaving the player (for example to open the guide) destroys its video
+  surface. Coming back, whether with Back or by picking a channel in the guide, left libVLC holding
+  the dead surface and failing about ten times a second with "video output creation failed". The
+  views are now attached in `onStart` and detached in `onStop`, following libVLC's own samples.
 - **Smaller fixes.**
   - Picking a channel in the guide reuses an existing player instead of stacking a new one.
+  - The diagnostic bitrate now counts only the current session's bytes.
   - The empty signal-bar glyph is replaced by a dimmed filled bar, for fonts that lack `▯`.
 
 ## 6. Cable (clear QAM) support

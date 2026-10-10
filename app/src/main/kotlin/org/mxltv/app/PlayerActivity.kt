@@ -95,7 +95,6 @@ class PlayerActivity : AppCompatActivity() {
 
         libVlc = LibVLC(this, arrayListOf("--deinterlace=-1", "--deinterlace-mode=yadif", "--no-stats"))
         player = MediaPlayer(libVlc)
-        player.attachViews(findViewById<VLCVideoLayout>(R.id.video), null, true, false)
         player.setEventListener { ev ->
             when (ev.type) {
                 MediaPlayer.Event.Playing -> center.visibility = View.GONE
@@ -135,6 +134,9 @@ class PlayerActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        // The video surface is destroyed while the activity is stopped, so libVLC must be
+        // re-attached every time it starts (as in libVLC's own samples).
+        player.attachViews(findViewById<VLCVideoLayout>(R.id.video), null, true, false)
         val c = channel
         if (c == null) {
             Toast.makeText(this, getString(R.string.no_channels), Toast.LENGTH_LONG).show()
@@ -147,13 +149,13 @@ class PlayerActivity : AppCompatActivity() {
     override fun onStop() {
         handler.removeCallbacksAndMessages(null)
         player.stop()
+        player.detachViews()
         currentUrl = null
         TvEngine.stop()
         super.onStop()
     }
 
     override fun onDestroy() {
-        player.detachViews()
         player.release()
         libVlc.release()
         super.onDestroy()
