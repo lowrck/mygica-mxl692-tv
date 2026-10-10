@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="16dp">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:gravity="center_vertical" android:orientation="horizontal">
+        <LinearLayout android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/app_name" android:textSize="24sp" android:textStyle="bold" />
+            <TextView android:id="@+id/status" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textColor="@color/text_dim" android:textSize="13sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="12dp" android:scrollbars="none">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btnGuide" style="@style/Btn" android:text="@string/guide" />
+            <Button android:id="@+id/btnScan" style="@style/Btn" android:text="@string/scan" />
+            <Button android:id="@+id/btnFirmware" style="@style/Btn" android:text="@string/firmware" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout android:id="@+id/messageBox" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:layout_marginTop="16dp"
+        android:background="@color/surface" android:orientation="vertical" android:padding="16dp"
+        android:visibility="gone">
+        <TextView android:id="@+id/message" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:textSize="16sp" />
+        <Button android:id="@+id/messageAction" style="@style/Btn" android:layout_marginTop="12dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/list"
+        android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+        android:layout_marginTop="12dp" android:clipToPadding="false" />
+</LinearLayout>

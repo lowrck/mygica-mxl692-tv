@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MxL TV</string>
+    <string name="scan">Scan</string>
+    <string name="guide">Guide</string>
+    <string name="firmware">Firmware</string>
+    <string name="retry">Retry</string>
+    <string name="start_scan">Start scan</string>
+    <string name="cancel">Cancel</string>
+    <string name="collect_guide">Collect program guide while scanning</string>
+    <string name="refresh_guide">Refresh guide</string>
+    <string name="ch_down">CH −</string>
+    <string name="ch_up">CH +</string>
+    <string name="audio">Audio</string>
+    <string name="cc">CC</string>
+    <string name="state_no_device">Plug in a MyGica MxL692 ATSC stick (USB OTG).</string>
+    <string name="state_permission">Waiting for USB permission…</string>
+    <string name="state_no_firmware">Firmware needed. Import dvb-demod-mxl692.fw, the Windows driver\'s cyDtv.Sys, or the driver .zip.</string>
+    <string name="state_initializing">Starting tuner…</string>
+    <string name="no_channels">No channels yet. Connect an antenna and run a scan.</string>
+    <string name="src_antenna">Antenna</string>
+    <string name="src_cable">Cable (clear QAM)</string>
+    <string name="src_cable_unsupported">Cable (not supported by MxL%1$s)</string>
+    <string name="hint_antenna">Over-the-air ATSC, RF channels 2–36. Takes about 2–3 minutes.</string>
+    <string name="hint_cable">Connect the cable line directly (no cable box). Scans cable channels 2–134 (to 855 MHz) for unencrypted QAM channels. Takes about 7–10 minutes; most US cable channels are encrypted and are skipped.</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Geniatech / MyGica MxL692 ATSC sticks (VID 0x1f4d) -->
+    <usb-device vendor-id="8013" product-id="26927" /> <!-- 692f A681B -->
+    <usb-device vendor-id="8013" product-id="59025" /> <!-- e691 PT682C -->
+    <usb-device vendor-id="8013" product-id="26922" /> <!-- 692a -->
+</resources>

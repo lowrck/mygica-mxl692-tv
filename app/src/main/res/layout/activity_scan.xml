@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="16dp">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/scan" android:textSize="24sp" android:textStyle="bold" />
+    <RadioGroup android:id="@+id/source" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal">
+        <RadioButton android:id="@+id/srcAntenna" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:checked="true" android:text="@string/src_antenna"
+            android:background="@drawable/focusable_bg" android:padding="8dp" android:layout_marginEnd="8dp" />
+        <RadioButton android:id="@+id/srcCable" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="@string/src_cable"
+            android:background="@drawable/focusable_bg" android:padding="8dp" />
+    </RadioGroup>
+    <TextView android:id="@+id/sourceHint" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:layout_marginTop="4dp" android:textColor="@color/text_dim"
+        android:textSize="13sp" android:text="@string/hint_antenna" />
+    <CheckBox android:id="@+id/collectGuide" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_marginTop="8dp" android:checked="true"
+        android:text="@string/collect_guide" android:background="@drawable/focusable_bg" android:padding="8dp" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:orientation="horizontal">
+        <Button android:id="@+id/start" style="@style/Btn" android:text="@string/start_scan" />
+        <Button android:id="@+id/cancel" style="@style/Btn" android:text="@string/cancel" android:enabled="false" />
+    </LinearLayout>
+    <TextView android:id="@+id/progressText" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="16sp" />
+    <ProgressBar android:id="@+id/progress" style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent" android:layout_height="8dp" android:layout_marginTop="6dp"
+        android:progressTint="@color/accent" />
+    <ScrollView android:id="@+id/logScroll" android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:layout_marginTop="12dp" android:background="@color/surface"
+        android:padding="12dp">
+        <TextView android:id="@+id/log" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:fontFamily="monospace" android:textSize="13sp" />
+    </ScrollView>
+</LinearLayout>

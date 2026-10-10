@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/black" android:keepScreenOn="true">
+
+    <org.videolan.libvlc.util.VLCVideoLayout android:id="@+id/video"
+        android:layout_width="match_parent" android:layout_height="match_parent" />
+
+    <TextView android:id="@+id/center" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_gravity="center"
+        android:background="@color/overlay" android:padding="16dp" android:textSize="20sp"
+        android:visibility="gone" />
+
+    <TextView android:id="@+id/numberEntry" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_gravity="top|end" android:layout_margin="24dp"
+        android:background="@color/overlay" android:padding="12dp" android:textSize="36sp"
+        android:textStyle="bold" android:visibility="gone" />
+
+    <LinearLayout android:id="@+id/overlay" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:layout_gravity="bottom"
+        android:background="@color/overlay" android:orientation="vertical" android:padding="20dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:gravity="center_vertical" android:orientation="horizontal">
+            <TextView android:id="@+id/chNumber" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="28sp" android:textStyle="bold" />
+            <TextView android:id="@+id/chName" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:layout_marginStart="14dp" android:textSize="22sp"
+                android:maxLines="1" android:ellipsize="end" />
+            <TextView android:id="@+id/signal" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textColor="@color/text_dim" android:textSize="14sp" />
+        </LinearLayout>
+        <TextView android:id="@+id/nowTitle" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="6dp" android:textSize="18sp"
+            android:maxLines="1" android:ellipsize="end" />
+        <ProgressBar android:id="@+id/nowProgress" style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="4dp" android:layout_marginTop="4dp"
+            android:max="1000" android:progressTint="@color/accent" />
+        <TextView android:id="@+id/nowDesc" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="4dp" android:textColor="@color/text_dim"
+            android:textSize="14sp" android:maxLines="2" android:ellipsize="end" />
+        <TextView android:id="@+id/next" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="4dp" android:textColor="@color/text_dim"
+            android:textSize="14sp" android:maxLines="1" android:ellipsize="end" />
+        <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" android:scrollbars="none">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button android:id="@+id/btnDown" style="@style/Btn" android:text="@string/ch_down" />
+                <Button android:id="@+id/btnUp" style="@style/Btn" android:text="@string/ch_up" />
+                <Button android:id="@+id/btnAudio" style="@style/Btn" android:text="@string/audio" />
+                <Button android:id="@+id/btnCc" style="@style/Btn" android:text="@string/cc" />
+                <Button android:id="@+id/btnGuide" style="@style/Btn" android:text="@string/guide" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+</FrameLayout>
